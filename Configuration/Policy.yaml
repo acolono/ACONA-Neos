@@ -1,0 +1,10 @@
+privilegeTargets:
+  'Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+    'Ao.Acona:BackendModule':
+      matcher: 'method(public Ao\Acona\Controller\BackendController->(.*)Action())'
+
+roles:
+  'Neos.Neos:AbstractEditor':
+    privileges:
+      - privilegeTarget: 'Ao.Acona:BackendModule'
+        permission: GRANT

@@ -1,0 +1,56 @@
+Ao.Acona.BackendController.index = Neos.Fusion:Component {
+    ping = ${ping}
+    domain = ${domain}
+    scores = ${scores}
+    pages = ${pages}
+    i18n = ${I18n.id('').package('Ao.Acona').source('Module')}
+    hasPages = ${Type.isArray(this.pages) && !Array.isEmpty(this.pages)}
+
+    renderer = afx`
+        <main class="acona">
+            <h1>
+                <span class="sr-only">Acona</span>
+                <img width="300" alt="Acona Logo" aria-hidden="true" src={StaticResource.uri("Ao.Acona", "Public/Assets/acona-banner-wide_s.jpg")} />
+            </h1>
+            <h2 class="text-xl mt-8 mb-4">{props.i18n.id('list.header').translate() || 'Available Newsletters'}</h2>
+            <Neos.Fusion.Form:Form
+                    form.target.controller="Backend"
+                    form.target.action="index"
+            >
+                <Neos.Fusion.Form:Input field.value={props.domain} attributes.class="w-1/3" field.name="domain" />
+                <Neos.Fusion.Form:Button attributes.class="neos-button neos-button-primary">submit</Neos.Fusion.Form:Button>
+            </Neos.Fusion.Form:Form>
+
+            <div class="my-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" @if.set={props.scores}>
+                <Neos.Fusion:Loop items={props.scores}>
+                    <div class="relative rounded-lg bg-neos shadow-sm flex items-center space-x-3 hover:bg-neos-darker focus-within:bg-neos-darker">
+                        <div class={[item.value > 61 ? "bg-green-800" : "bg-red-800" ,"leading-none flex-shrink-0 h-16 w-16 rounded-l-lg flex flex-col items-center justify-center"]}>
+                            <span class="text-lg">{item.value}</span>
+                            <span class="text-xs">Score</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <Neos.Fusion:Link.Action class="focus:outline-none" href.action="index" href.controller="Backend" href.arguments.url={item.url} >
+                                <span class="absolute inset-0" aria-hidden="true"></span>
+                                <p class="text-sm font-medium text-gray-200">
+                                    {item.url}
+                                </p>
+                                <p class="text-sm text-gray-400 truncate">
+                                    {item.date}
+                                </p>
+                            </Neos.Fusion:Link.Action>
+                        </div>
+                    </div>
+                </Neos.Fusion:Loop>
+            </div>
+
+            <h2 class="text-xl mt-8 mb-4">{props.i18n.id('status.headline').translate() || 'Acona API Status'}</h2>
+            <p class="flex text-lg">
+                <Neos.Fusion:Augmenter class="fas text-lg pr-6 block" aria-hidden="true">
+                    <i @if.set={props.ping} class="fa-check text-green-500" ></i>
+                    <i @if.set={!props.ping} class="fa-times text-red-500"></i>
+                </Neos.Fusion:Augmenter>
+                <span>{props.i18n.id('status.' + (props.ping ? 'active' : 'inactive')).translate() || (props.ping ? 'Active' : 'Inactive')}</span>
+            </p>
+      </main>
+    `
+}

@@ -1,0 +1,8 @@
+Ao:
+  Acona:
+    apiToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYXBwX3VzZXIiLCJlbWFpbCI6Im9mZmljZUBhY29sb25vLmNvbSJ9.aSSBOGh6DpXUVjxoWQkGz7RZQAlfEHr54gL1kQN5Z_A'
+    apiUrl: 'https://data.acona.app'
+    endpoints:
+        scoresLatest: '/rpc/acona_urls_success'
+        recommendationsLatest: '/rpc/recommendations_last'
+        successScores: '/rpc/acona_success_scores'

@@ -1,0 +1,34 @@
+Neos:
+  Flow:
+    log:
+      psr3:
+        'Neos\Flow\Log\PsrLoggerFactory':
+          'Ao.Acona:ApiLogger':
+            default:
+              class: Neos\Flow\Log\Backend\FileBackend
+              options:
+                logFileURL: '%FLOW_PATH_DATA%Logs/AconaApi.log'
+                createParentDirectories: true
+                severityThreshold: '%LOG_INFO%'
+  Neos:
+    userInterface:
+      translation:
+        autoInclude:
+          Ao.Acona:
+            - Module
+    modules:
+      management:
+        submodules:
+          acona:
+            label: 'Ao.Acona:Module:module.acona.label'
+            description: 'Ao.Acona:Module:module.acona.description'
+            icon: 'fas fa-broadcast-tower'
+            controller: \Ao\Acona\Controller\BackendController
+            privilegeTarget: 'Ao.Acona:BackendModule'
+            position: end
+            mainStylesheet: Lite
+            additionalResources:
+              javaScripts:
+                - 'resource://Ao.Acona/Public/Scripts/Backend.js'
+              styleSheets:
+                - 'resource://Ao.Acona/Public/Styles/Backend.css'

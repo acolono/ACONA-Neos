@@ -1,0 +1,7 @@
+- requestFilter: 'isPackage("Ao.Acona") && isController("Backend")'
+  viewObjectName: 'Neos\Fusion\View\FusionView'
+  options:
+    fusionPathPatterns:
+      - 'resource://Neos.Fusion/Private/Fusion'
+      - 'resource://Neos.Fusion.Form/Private/Fusion/Root.fusion'
+      - 'resource://Ao.Acona/Private/Modules'

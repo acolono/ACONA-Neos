@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2"
+    xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="Ao.Acona" source-language="en" target-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="module.acona.label" xml:space="preserve">
+                <source>Acona</source>
+                <target>Acona</target>
+            </trans-unit>
+            <trans-unit id="module.acona.description" xml:space="preserve">
+                <source>This module manages Acona data.</source>
+                <target>This module manages Acona data</target>
+            </trans-unit>
+            <trans-unit id="list.header" xml:space="preserve">
+                <source>Scan Domain</source>
+                <target>Scan Domain</target>
+            </trans-unit>
+            <group id="list.emails.count" restype="x-gettext-plurals">
+                <trans-unit id="list.emails.count[0]" xml:space="preserve">
+                    <source>email</source>
+                    <target>email</target>
+                </trans-unit>
+                <trans-unit id="list.emails.count[1]" xml:space="preserve">
+                    <source>emails</source>
+                    <target>emails</target>
+                </trans-unit>
+            </group>
+            <trans-unit id="status.headline" xml:space="preserve">
+                <source>Acona API Status</source>
+                <target>Acona API Status</target>
+            </trans-unit>
+            <trans-unit id="status.active" xml:space="preserve">
+                <source>Active</source>
+                <target>Active</target>
+            </trans-unit>
+            <trans-unit id="status.inactive" xml:space="preserve">
+                <source>Inactive</source>
+                <target>Inactive</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

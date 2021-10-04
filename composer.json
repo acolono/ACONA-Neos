@@ -1,0 +1,27 @@
+{
+    "description": "Acona Neos Intergration",
+    "type": "neos-plugin",
+    "name": "ao/acona-neos",
+    "require": {
+        "neos/neos": "^4.3 || ^5 || ^7",
+        "guzzlehttp/guzzle": "^6.3",
+        "ext-json": "*",
+        "neos/fusion-form": "^2.0"
+    },
+    "authors": [
+        {
+            "name": "David Spiola"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "Ao\\Acona\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Ao.Acona"
+        }
+    }
+}
